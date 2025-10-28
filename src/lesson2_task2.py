@@ -116,6 +116,6 @@ def zodiac_signs(month: str, day: str) -> str or None:
 
 if __name__ == "__main__":
     month = input("Введите месяц: ")
-    day = input("Введите день: ")
+    day = input("Введите число: ")
     result = zodiac_signs(month, day)
     print(result)
