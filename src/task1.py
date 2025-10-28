@@ -1,4 +1,3 @@
-
 # ТАКЖЕ в файле https://github.com/aomakaomak/TopAcademy/blob/main/src/task1_var2.py
 # СДЕЛАЛ ФУНКЦИЮ И ОБРАБОТАЛ ИСКЛЮЧЕНИЯ
 
