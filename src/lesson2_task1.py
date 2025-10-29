@@ -1,24 +1,31 @@
 def you_in_the_army_now(age: str, children: str, is_study: str, height: str) -> str:
+    """
+    Сначала проверяем, что в инпут ввели то, что нужно. Потом проверяем, что числовые значения не равны 0.
+    Меньше 0 проверять смысла нет, потому что все отрицательные значения уже не прошли первую проверку на цифры.
+    По той же логике нет смысла делать двойные проверки при определении рода войск, так как все плохие
+    значения мы уже отсекли ранее.
+    """
     if (
         not age.isdigit()
         or not children.isdigit()
         or not height.isdigit()
-        or is_study not in ["да", "нет", "Да", "Нет"]
+        or is_study.lower() not in ["да", "нет"]
     ):
         raise ValueError("Пожалуйста, введите корректные значения")
     height_int = int(height)
+    if height_int == 0 or int(age) == 0 or int(children) == 0:
+        raise ValueError("Пожалуйста, введите корректные значения")
     if int(age) < 18 or int(children) >= 3 or is_study.lower() == "да":
         return "Вам повезло!  У вас отсрочка. Идите домой."
-    elif 0 < height_int < 170:
+    elif height_int < 170:
         return "Вы танкист"
-    elif 170 <= height_int < 180:
+    elif height_int < 180:
         return "В пехоту"
-    elif 180 <= height_int < 200:
+    elif height_int < 200:
         return "В десант"
-    elif height_int >= 200:
-        return "Вы слишком большой. Вы не поместитесь в окоп."
     else:
-        raise ValueError("Пожалуйста, введите корректные значения")
+        return "Вы слишком большой. Вы не поместитесь в окоп."
+
 
 
 if __name__ == "__main__":
