@@ -13,7 +13,7 @@ def you_in_the_army_now(age: str, children: str, is_study: str, height: str) -> 
     ):
         raise ValueError("Пожалуйста, введите корректные значения")
     height_int = int(height)
-    if height_int == 0 or int(age) == 0 or int(children) == 0:
+    if height_int == 0 or int(age) == 0:
         raise ValueError("Пожалуйста, введите корректные значения")
     if int(age) < 18 or int(children) >= 3 or is_study.lower() == "да":
         return "Вам повезло!  У вас отсрочка. Идите домой."
