@@ -6,8 +6,6 @@ while True:
     if my_string:
         lower_string = my_string.lower().replace(' ', '')
         reverse_string = lower_string[::-1]
-        print(lower_string)
-        print(reverse_string)
         if reverse_string == lower_string:
             print("Строка является палиндромом")
         else:
