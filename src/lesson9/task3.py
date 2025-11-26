@@ -23,8 +23,8 @@ for query in queries:
         counter = 1
         words_percent[query_length] = counter/length_of_queries*100
 
-for index, value in words_percent.items():
-    print(f'Запросов из {index} слов -- {round(value)}%.')
+for key, value in words_percent.items():
+    print(f'Запросов из {key} слов -- {round(value)}%.')
 
 
 
