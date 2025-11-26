@@ -17,7 +17,7 @@ print(geo_id)
 # Способ 2  с методом items
 geo_id_new = []
 
-for index, value in ids.items():
+for key, value in ids.items():
     for id in value:
         if id not in geo_id_new:
             geo_id_new.append(id)
@@ -28,7 +28,7 @@ print(geo_id_new)
 # Способ 3 с помощью set
 geo_id_new_new = []
 
-for index, value in ids.items():
+for key, value in ids.items():
     geo_id_new_new.extend(value)
     new_set = set(geo_id_new_new)
     geo_id_new_new = list(new_set)
