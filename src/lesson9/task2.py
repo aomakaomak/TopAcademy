@@ -23,3 +23,11 @@ for index, value in ids.items():
             geo_id_new.append(id)
 
 print(geo_id_new)
+
+
+geo_id_new_new = []
+
+for index, value in ids.items():
+    geo_id_new_new.extend(value)
+
+print(geo_id_new_new)
