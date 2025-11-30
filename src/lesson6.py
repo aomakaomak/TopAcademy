@@ -1,4 +1,3 @@
-
 # Понятно, зачем в задание был указан цикл while: чтобы если мы ввели неверные значения, то чтобы
 # программа опять у нас спрашивала ввод.
 
@@ -10,7 +9,7 @@ while True:
             raise ValueError("Количество дней должно быть от 1 до 7")
 
         hours_quantaty = 0
-        for i in range(1, days_quantity+1):
+        for i in range(1, days_quantity + 1):
             hours_per_day = int(input(f"Введите количество часов в день {i}: "))
             if hours_per_day <= 0 or hours_per_day > 24:
                 raise ValueError("Количество часов должно быть от 1 до 24")

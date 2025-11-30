@@ -27,7 +27,6 @@ def you_in_the_army_now(age: str, children: str, is_study: str, height: str) -> 
         return "Вы слишком большой. Вы не поместитесь в окоп."
 
 
-
 if __name__ == "__main__":
     age = input("Введите Ваш возраст: ")
     children = input("Введите количество детей: ")

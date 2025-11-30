@@ -11,7 +11,6 @@ def zodiac_signs(our_month: str, day: str) -> str or None:
     not in и перечислять все месяцы
     """
 
-
     year = 2024
     month = our_month.lower()
     if month == "январь":
