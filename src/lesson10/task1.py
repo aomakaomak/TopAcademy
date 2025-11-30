@@ -1,4 +1,4 @@
-
+from typing import Any
 
 
 def get_name(number: str, documents: list) -> str:
@@ -49,7 +49,15 @@ def add_document(type_of_document, number, name, directory, documents, directori
     return documents, directories
 
 
-def main():
+def delete_document(number: str) -> Any:
+    for document in documents:
+        if document.get('number') == number:
+            documents.remove(document)
+            return documents
+    raise ValueError("Вы ввели неверный номер документа")
+
+
+def main() -> None:
     """ Главная функция, которая спрашивает, какое действие хочет совершить пользователь """
     while True:
         action = input("Введите желаемое действие: p - получить имя, s - номер полки, l - список документов, a - добавить документ, для выхода нажмите Enter ")
@@ -102,4 +110,7 @@ if __name__ == '__main__':
         '3': []
     }
 
-    main()
+    # main()
+
+    number= input("Введите номер документа для удаления")
+    print(delete_document(number))
