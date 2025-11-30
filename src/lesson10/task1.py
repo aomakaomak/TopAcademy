@@ -45,22 +45,36 @@ def add_document(type_of_document, number, name, directory, documents, directori
         if key == directory:
             value.append(number)
 
-
     return documents, directories
 
 
 def delete_document(number: str) -> Any:
+    """ Удаляем документ по номеру из списка и с полки """
+    flag = False
     for document in documents:
         if document.get('number') == number:
             documents.remove(document)
-            return documents
-    raise ValueError("Вы ввели неверный номер документа")
+            flag = True
+
+    if flag:
+        flag = False
+        for key, value in directories.items():
+            if number in value:
+                value.remove(number)
+                flag = True
+
+    if not flag:
+        raise ValueError("Документа с таким номером нет")
+
+    return documents, directories
+
+
 
 
 def main() -> None:
     """ Главная функция, которая спрашивает, какое действие хочет совершить пользователь """
     while True:
-        action = input("Введите желаемое действие: p - получить имя, s - номер полки, l - список документов, a - добавить документ, для выхода нажмите Enter ")
+        action = input("Введите желаемое действие: p - получить имя, s - номер полки, l - список документов, a - добавить документ, d - удалить документ, для выхода нажмите Enter ")
         if not action:
             break
 
@@ -91,6 +105,11 @@ def main() -> None:
                 print(add_doc)
                 break
 
+            if action == 'd':
+                number = input("Введите номер документа для удаления: ")
+                print(delete_document(number))
+                break
+
 
         except ValueError as e:
             print(e)
@@ -110,7 +129,5 @@ if __name__ == '__main__':
         '3': []
     }
 
-    # main()
+    main()
 
-    number= input("Введите номер документа для удаления")
-    print(delete_document(number))
