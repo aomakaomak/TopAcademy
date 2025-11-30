@@ -69,7 +69,7 @@ def delete_document(number: str) -> Any:
     return documents, directories
 
 
-def move_document(number_of_doc: str, number_of_dir: int) -> Any:
+def move_document(number_of_doc: str, number_of_dir: str) -> Any:
     """ Вводим номер документа и номер целевой полки - и документ перемещается на целевую полку """
 
     flag = False
@@ -93,6 +93,10 @@ def move_document(number_of_doc: str, number_of_dir: int) -> Any:
     return directories
 
 
+def add_directory(number):
+    directories[number] = []
+    return directories
+
 
 
 
@@ -100,7 +104,7 @@ def move_document(number_of_doc: str, number_of_dir: int) -> Any:
 def main() -> None:
     """ Главная функция, которая спрашивает, какое действие хочет совершить пользователь """
     while True:
-        action = input("Введите желаемое действие: p - получить имя, s - номер полки, l - список документов, a - добавить документ, d - удалить документ, m - переместить документ, для выхода нажмите Enter ")
+        action = input("Введите желаемое действие: p - получить имя, s - номер полки, l - список документов, a - добавить документ, d - удалить документ, m - переместить документ, as - добавить новую полку, для выхода нажмите Enter ")
         if not action:
             break
 
@@ -141,6 +145,13 @@ def main() -> None:
                 directory = input("Введите номер полки для перемещения документа: ")
                 print(move_document(number, directory))
                 break
+
+            if action == 'as':
+                directory = input("Введите номер новой полки: ")
+                print(add_directory(directory))
+                break
+
+            raise ValueError("Такой команды не существует")
 
 
         except ValueError as e:
