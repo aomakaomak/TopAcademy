@@ -95,6 +95,13 @@ def move_document(number_of_doc: str, number_of_dir: str) -> Any:
 
 def add_directory(number: str) -> dict:
     """Добавляем новую пустую полку с номером 'number'"""
+    flag = False
+    for key, value in directories.items():
+        if key == number:
+            flag = True
+    if flag:
+        raise ValueError("Такая полка уже существует")
+
     directories[number] = []
     return directories
 
