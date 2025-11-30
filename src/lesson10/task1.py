@@ -69,12 +69,38 @@ def delete_document(number: str) -> Any:
     return documents, directories
 
 
+def move_document(number_of_doc: str, number_of_dir: int) -> Any:
+    """ Вводим номер документа и номер целевой полки - и документ перемещается на целевую полку """
+
+    flag = False
+    for key, value in directories.items():
+        if number_of_doc in value:
+            value.remove(number_of_doc)
+            flag = True
+    if not flag:
+        raise ValueError("Вы ввели неверный номер документа")
+
+    if flag:
+        flag = False
+        for key, value in directories.items():
+            if number_of_dir == key:
+                directories[key].append(number_of_doc)
+                flag = True
+
+    if not flag:
+        raise ValueError("Вы ввели либо неверный номер полки")
+
+    return directories
+
+
+
+
 
 
 def main() -> None:
     """ Главная функция, которая спрашивает, какое действие хочет совершить пользователь """
     while True:
-        action = input("Введите желаемое действие: p - получить имя, s - номер полки, l - список документов, a - добавить документ, d - удалить документ, для выхода нажмите Enter ")
+        action = input("Введите желаемое действие: p - получить имя, s - номер полки, l - список документов, a - добавить документ, d - удалить документ, m - переместить документ, для выхода нажмите Enter ")
         if not action:
             break
 
@@ -108,6 +134,12 @@ def main() -> None:
             if action == 'd':
                 number = input("Введите номер документа для удаления: ")
                 print(delete_document(number))
+                break
+
+            if action == 'm':
+                number = input("Введите номер документа для перемещения: ")
+                directory = input("Введите номер полки для перемещения документа: ")
+                print(move_document(number, directory))
                 break
 
 
