@@ -26,6 +26,11 @@ def get_ingredients_list(file_path: str) -> dict:
 
     return cook_book
 
+
+def get_shop_list_by_dishes(dishes, person_count):
+    return dishes
+
+
 if __name__ == '__main__':
 
     file_path = 'src/lesson11/dishes.txt'
@@ -38,4 +43,7 @@ if __name__ == '__main__':
         sort_dicts=False,
         compact=True
     )
+
+
+    print(get_shop_list_by_dishes(cook_book_our, 5))
 
