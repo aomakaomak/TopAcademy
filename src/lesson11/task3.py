@@ -1,18 +1,19 @@
 # Допустим, что у нас 100 файлов. Нужен универсальный механизм
 from pathlib import Path
 
-
+# получаем список названий файлов
 def get_filenames(path):
     return [p.name for p in Path(path).iterdir() if p.is_file()]
 
 
 file_list = get_filenames("src/lesson11/files/")
 
+
 data_list = []
 len_list = []
 path_list = []
 
-
+# формируем списки с длинами файлов, содержимом и названиями
 for document in file_list:
     with open(f"src/lesson11/files/{document}", "r", encoding="UTF-8") as file:
         data = file.readlines()
@@ -25,7 +26,8 @@ for document in file_list:
 with open("src/lesson11/files/file_common.txt", "w", encoding="UTF-8") as file:
     file.write("")
 
-
+# формируем конечный файл. каждый раз находим наименьший элемент в списке длин, удаляем его, узнаем его индекс и по
+# этому же индекс извлекаем значения из списков названий и текстов
 min_number = 0
 while len_list:
     min_number = min(len_list)
