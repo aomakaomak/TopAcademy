@@ -1,4 +1,4 @@
-import csv # я если не забываю, в конце всегда делаю команду black.  он мне автоматически добавил import csv
+import csv
 import os
 
 
