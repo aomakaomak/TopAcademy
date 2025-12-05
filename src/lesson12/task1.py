@@ -12,11 +12,13 @@ def read_students(filename, min_age, min_average):
     for student in cleaned_data:
         if int(student[2]) >= int(min_age) and int(student[3]) >= int(min_average):
             filtered_data.append(student)
+
+    result_list = []
     first_string = "|".join(data[0])
-    print(first_string)
-    print("-" * 30)
+    result_list.append(first_string)
+    result_list.append("-" * 30)
     for student in filtered_data:
-        print("|".join(student))
+        result_list.append("|".join(student))
 
 
 def add_student(filename, name, surname, age, average_score):
@@ -24,6 +26,7 @@ def add_student(filename, name, surname, age, average_score):
     with open(file_path, "a", encoding="UTF-8", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([name, surname, age, average_score])
+    print('Новый студент успешно добавлен!')
 
 
 def main():
@@ -43,7 +46,7 @@ def main():
                 min_average = input("Введите минимальный средний балл: ")
                 if not min_average.isdigit():
                     raise ValueError("Средний балл должен быть числом!")
-                read_students(file_name, min_age, min_average)
+                print(read_students(file_name, min_age, min_average))
                 break
             if user_choice == "w":
                 file_name = input("Введите имя файла: ")
