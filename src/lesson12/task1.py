@@ -37,6 +37,8 @@ def add_student(filename, name, surname, age, average_score):
 
     if len(new_data) == len(data) + 1:
         return "Новый студент успешно добавлен!"
+    else:
+        return "Ошибка: студент не был добавлен!"
 
 
 def main():
