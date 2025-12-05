@@ -20,9 +20,6 @@ else:
     print(x1, x2)
 
 
-
-
-
 # file1 = "src/lesson11/files/file1.txt"
 # file2 = "src/lesson11/files/file2.txt"
 #
@@ -57,4 +54,3 @@ else:
 #         file.write(file2 + "\n")
 #         file.write(str(len_data2) + "\n")
 #         file.write(text2 + "\n")
-

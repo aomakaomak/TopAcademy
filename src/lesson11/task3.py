@@ -1,6 +1,7 @@
 # Допустим, что у нас 100 файлов. Нужен универсальный механизм
 from pathlib import Path
 
+
 # получаем список названий файлов
 def get_filenames(path):
     return [p.name for p in Path(path).iterdir() if p.is_file()]
