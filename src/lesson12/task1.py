@@ -20,6 +20,8 @@ def read_students(filename, min_age, min_average):
     for student in filtered_data:
         result_list.append("|".join(student))
 
+    return result_list
+
 
 def add_student(filename, name, surname, age, average_score):
     file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
@@ -46,7 +48,9 @@ def main():
                 min_average = input("Введите минимальный средний балл: ")
                 if not min_average.isdigit():
                     raise ValueError("Средний балл должен быть числом!")
-                print(read_students(file_name, min_age, min_average))
+                result = read_students(file_name, min_age, min_average)
+                for row in result:
+                    print(row)
                 break
             if user_choice == "w":
                 file_name = input("Введите имя файла: ")
