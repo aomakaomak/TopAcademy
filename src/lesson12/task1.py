@@ -25,10 +25,18 @@ def read_students(filename, min_age, min_average):
 
 def add_student(filename, name, surname, age, average_score):
     file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
+    with open(file_path, encoding="UTF-8") as file:
+        data = file.readlines()
+
     with open(file_path, "a", encoding="UTF-8", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([name, surname, age, average_score])
-    print('Новый студент успешно добавлен!')
+
+    with open(file_path, encoding="UTF-8") as file:
+        new_data = file.readlines()
+
+    if len(new_data) == len(data) + 1:
+        return 'Новый студент успешно добавлен!'
 
 
 def main():
@@ -67,9 +75,9 @@ def main():
                 if not score_student.isdigit():
                     raise ValueError("Средний балл должен быть числом!")
 
-                add_student(
+                print(add_student(
                     file_name, name_student, surname_student, age_student, score_student
-                )
+                ))
                 break
 
             raise ValueError("Такой опции нет")
