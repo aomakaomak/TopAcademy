@@ -1,4 +1,4 @@
-import csv
+import csv # я если не забываю, в конце всегда делаю команду black.  он мне автоматически добавил import csv
 import os
 
 
@@ -36,7 +36,7 @@ def add_student(filename, name, surname, age, average_score):
         new_data = file.readlines()
 
     if len(new_data) == len(data) + 1:
-        return 'Новый студент успешно добавлен!'
+        return "Новый студент успешно добавлен!"
 
 
 def main():
@@ -75,9 +75,15 @@ def main():
                 if not score_student.isdigit():
                     raise ValueError("Средний балл должен быть числом!")
 
-                print(add_student(
-                    file_name, name_student, surname_student, age_student, score_student
-                ))
+                print(
+                    add_student(
+                        file_name,
+                        name_student,
+                        surname_student,
+                        age_student,
+                        score_student,
+                    )
+                )
                 break
 
             raise ValueError("Такой опции нет")
